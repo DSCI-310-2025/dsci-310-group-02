@@ -2,21 +2,14 @@
 
 ## Introduction
 We are committed to creating a friendly and respectful place for
-learning, teaching and contributing.  All participants in our course and
+learning and contributing.  All members of the group and
 communications are expected to show respect and courtesy to others.
 
-To make clear what is expected, everyone participating in DSCI 100 activities
+To make clear what is expected, everyone participating in this project
 is required to conform to the Code of Conduct.  This Code of Conduct applies to
-all spaces managed by DSCI 100 including, but not limited to, class meetings,
-email communication, and online forums such as Piazza and GitHub. The DSCI 100
-teaching team are expected to assist with the enforcement of the Code of
-Conduct.
+in-person and online meetings, email communication, and online forums such as Piazza and GitHub.
 
-The DSCI 100 Instructor(s) is responsible for enforcing the Code of Conduct.
-All reports will be reviewed by the Instructor(s) and will be kept
-confidential.
-
-## The DSCI 100 Code of Conduct
+## The Group 2 Code of Conduct
 We are dedicated to providing a welcoming and supportive
 environment for all people, regardless of background or identity. As such, we
 do not tolerate behaviour that is disrespectful to our teachers or learners or
@@ -28,20 +21,17 @@ origin, pregnancy, familial status, veteran status, genetic information,
 religion or belief (or lack thereof), membership of a national minority,
 property, age, education, socio-economic status, technical choices, and
 experience level.
-
-Everyone who participates in DSCI 100 activities is required to conform to this
-Code of Conduct. It applies to all spaces managed by DSCI 100 including, but
-not limited to, class meetings, email communication, and online forums such as
-Piazza and GitHub. The DSCI 100 teaching team are expected to assist with the
-enforcement of the Code of Conduct. 
+All members of the group are required to conform to this
+Code of Conduct. It applies to all spaces involved in this project including, but
+not limited to, in-person and online meetings, email communication, and online forums such as Piazza and GitHub.
 
 ### Expected Behavior
 
-All participants in our events and communications are expected to show respect
+All members are expected to show respect
 and courtesy to others. All interactions should be professional regardless of
 platform: either online or in-person. In order to foster a positive and
 professional learning environment we encourage the following kinds of
-behaviours in all DSCI 100 events and platforms:
+behaviours in all meetings and platforms:
 
 - Use welcoming and inclusive language
 - Be respectful of different viewpoints and experiences
@@ -53,7 +43,7 @@ Note: See the [four social rules](https://www.recurse.com/manual#sub-sec-social-
 
 ### Unacceptable Behavior
 
-Examples of unacceptable behavior by participants at any DSCI 100 event/platform include:
+Examples of unacceptable behavior by participants include:
 
 - written or verbal comments which have the effect of excluding people on the basis of membership of any specific group
 - causing someone to fear for their safety, such as through stalking, following, or intimidation
@@ -72,21 +62,9 @@ publication of private communication without consent
 ### Consequences of Unacceptable Behavior
 
 Participants who are asked to stop any inappropriate behavior are expected to
-comply immediately. This applies to any DSCI 100 events and platforms, either
-online or in-person. If a participant engages in behavior that violates this
-code of conduct, the teaching team may warn the offender and or engage the DSCI
-100 Instructor to investigate the Code of Conduct violation and impose
-appropriate sanctions.
-
-### Incident Reporting Guidelines
-
-If someone violates the Code of Conduct during a DSCI 100 event or in an online
-space outside of organised events, we ask that you report it to the
-Instructor(s). The current instructor(s) of DSCI100 is(are) Quan Nguyen, Trevor Campbell, Joel Ostblom, and Daniel Chen. An
-email message to the email adresses listed in the course syllabus will be seen by each respective instructor. To report a DSCI
-100 code of conduct violation that will not be seen by your instructor, an
-alternative contact person is Bruce Dunham, Professor of Teaching in the
-Department of Statistics at UBC. His email is b.dunham[-at-]stat.ubc.ca.
+comply immediately. This applies to all meetings and platforms, either
+online or in-person. If a member engages in behavior that violates this
+code of conduct, the member in question will be reported to the professor.
 
 ## Attribution 
-- Derived from the [Carpentries Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html)
+- Derived from the [DSCI 100 Code of Conduct](https://github.com/UBC-DSCI/dsci-100-student/blob/master/CODE_OF_CONDUCT.md)
