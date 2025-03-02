@@ -5,6 +5,7 @@ WORKDIR /home/jovyan/work
 COPY animal_shelter_adoptability_analysis.ipynb .
 
 RUN Rscript -e "install.packages('remotes', repos='https://cloud.r-project.org/')"
+RUN Rscript -e "remotes::install_version('kknn', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('readr', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('ggplot2', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('tidymodels', repos='https://cloud.r-project.org/')"
