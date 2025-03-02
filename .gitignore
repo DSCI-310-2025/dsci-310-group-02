@@ -47,3 +47,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Jupyter Lab Checkpoints
+.ipynb_checkpoints/
+
+# Temporary Jupyter Lab Virtual Documents
+virtual_documents/
