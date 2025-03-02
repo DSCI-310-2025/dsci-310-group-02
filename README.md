@@ -3,7 +3,9 @@
 Nolan Vibhakar, Audra Cornick, Angela Yandrofski, Rowan Murphy
 
 ## Summary:
-We used knn-classification in order to determine whether a pet would be adopted or not based on 6 predictors.
+The largest problems animal shelters are facing in North America is a lack of space and people to care for the large number of animals they receive everyday. Additionally many animals received by shelters have health conditions that need immediate attention or could potentially spread to other animals, which require more resources to ensure swift treatment of these animals and measures to prevent the spread of sickness within these facilities. It is important that shelters are able to make quick decisions about where they dedicate their limited resources and optimize the adoption process to ensure as many animals are able to find home as possible.
+Our project uses animal shelter data from Long Beach Animal Shelter in California to predict whether or not an animal will be adopted based on their age, sex, animal type, intake condition, intake type, and length of stay at shelter. Using predictive analysis in R, we create a k-nearest neighbor model to predict if an animal is going to be adopted based on the features listed above. 
+This analysis aims to help enhance adoption rates, so shelters can recognize which animals are unlikely to get adopted and tailor their outreach and marketing strategies to specifically promote the adoption of those animals. Additionally, better understanding which animals are at a higher risk of not being adopted allows shelters to allocate resources more effectively, by providing additional care and resources to help those that are unlikely to be adopted.  
 
 ## Dependencies:
 - readr
