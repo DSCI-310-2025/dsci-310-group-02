@@ -23,11 +23,11 @@ This analysis aims to help enhance adoption rates, so shelters can recognize whi
 ## How to run the analysis:
 In your terminal, run the command
 
-`docker pull ribbitsm/animal_shelter_image_group2`
+`docker pull ribbitsm/dsci310-group-02:animal_shelter_image_group2`
 
 This will get the container onto your local computer. Then run
 
-`docker run --rm -it -p 8888:8888 ribbitsm/animal_shelter_image_group2`
+`docker run --rm -it -p 8888:8888 ribbitsm/dsci310-group-02:animal_shelter_image_group2`
 
 This will start the container. To Run the analysis go to a browser and go to localhost:8888/lab. From here you can open the notebook from the file directory on the side and run the analysis by selecting `run all cells` from the run menu at the top.
 
