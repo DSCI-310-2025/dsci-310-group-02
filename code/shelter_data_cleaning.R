@@ -14,10 +14,10 @@ library(docopt)
 
 opt <- docopt(doc)
 
-main <- function(file_path) {
+main <- function(input_file_path, output_file_path) {
   
   # read in data
-  animals <- read_csv(file_path)
+  animals <- read_csv(input_file_path)
   
   animals <- animals %>% 
     select(animal_type, primary_color, sex, dob, intake_condition, intake_type, intake_date, outcome_date, outcome_type) %>% 
