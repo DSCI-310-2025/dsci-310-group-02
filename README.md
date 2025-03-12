@@ -32,5 +32,9 @@ This will get the container onto your local computer. Then make sure your workin
 
 `docker-compose up`
 
-This will start the container. To Run the analysis go to a browser and go to localhost:8888/lab. From here you can open the notebook from the file directory on the side and run the analysis by selecting `run all cells` from the run menu at the top.
+This will start the container. To Run the analysis open a browser window and go to `http://localhost:8787/`, which will open an Rstudio window. Go to the Rstudio terminal and use the command
+
+`make all`
+
+which will run all the various analysis scripts to clean the data, create EDA figures and tables, and create the model and visualizations. It will also create an `index.html` file in the `docs` folder to allow you to easily view the full report.
 
