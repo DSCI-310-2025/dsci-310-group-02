@@ -14,10 +14,10 @@ library(docopt)
 
 opt <- docopt(doc)
 
-main <- function(file_path) {
+main <- function(input_file_path, output_file_path) {
   
   # read in data
-  animals <- read_csv(file_path)
+  animals <- read_csv(input_file_path)
   
   animals <- animals %>% 
     select(animal_type, primary_color, sex, dob, intake_condition, intake_type, intake_date, outcome_date, outcome_type) %>% 
@@ -32,6 +32,9 @@ main <- function(file_path) {
                                   "rescue" = "Adopted",
                                   .default = "Not Adopted"  # Everything else is considered "Not Adopted"
   )
+  
+  animals$age_at_intake <- as.numeric(difftime(Sys.Date(), animals$dob, units = "days")) / 365
+  
   # Write cleaned data to output file
    write_csv(animals, output_file_path)
 }
