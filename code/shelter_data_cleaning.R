@@ -32,6 +32,9 @@ main <- function(file_path) {
                                   "rescue" = "Adopted",
                                   .default = "Not Adopted"  # Everything else is considered "Not Adopted"
   )
+  
+  animals$age_at_intake <- as.numeric(difftime(Sys.Date(), animals$dob, units = "days")) / 365
+  
   # Write cleaned data to output file
    write_csv(animals, output_file_path)
 }
