@@ -5,7 +5,7 @@
 recodes the outcome_group column into adopted or not adopted for
 our analyses.
 
-Usage: shelter_data_cleaning.R <input_file_path> <output_file_path>
+Usage: Script2.R <input_file_path> <output_file_path>
 " -> doc
 
 
