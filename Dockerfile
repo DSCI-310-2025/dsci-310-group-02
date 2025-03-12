@@ -2,7 +2,7 @@ FROM rocker/rstudio:4.4.2
 
 WORKDIR /home/jovyan/work
 
-COPY animal_shelter_adoptability_analysis.ipynb .
+COPY analysis/animal_shelter_adoptability_analysis.ipynb .
 
 RUN Rscript -e "install.packages('remotes', repos='https://cloud.r-project.org/')" && \
     Rscript -e "remotes::install_version('kknn', version='1.3.1', repos='https://cloud.r-project.org/')" && \
