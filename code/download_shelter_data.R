@@ -1,7 +1,7 @@
 "This script downloads data from the internet and saves it locally
 
 Usage:
-  01-download_data.R --output_path=<output_path>
+  donwload_shelter_data.R --output_path=<output_path>
 
 Options:
   --output_path=<output_path>  Path to save the downloaded file.
