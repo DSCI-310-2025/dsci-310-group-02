@@ -1,0 +1,5 @@
+services:
+  analysis-env:
+    image: ribbitsm/dsci310-group-02:animal_shelter_image_group2
+    ports:
+      - "8888:8888"
