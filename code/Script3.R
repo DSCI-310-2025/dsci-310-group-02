@@ -19,15 +19,15 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
 
     #create and save the first table
     table_1 <- table(animals$outcome_group)
-    write_csv(as.df(table_1), path=paste(folder,"/",name1))
+    write_csv(as.data.frame(table_1), file=paste(folder,"/",name1,sep=""))
 
     #create and save the second table
     table_2 <- table(animals$outcome_type)
-    write_csv(as.df(table_2), path=paste(folder,"/",name2))
+    write_csv(as.data.frame(table_2), file=paste(folder,"/",name2,sep=""))
 
     #create and save the third table
-    table_2 <- table(animals$intake_condition)
-    write_csv(as.df(table_3), path=paste(folder,"/",name3))
+    table_3 <- table(animals$intake_condition)
+    write_csv(as.data.frame(table_3), file=paste(folder,"/",name3,sep=""))
 
     #create and save the first graph
     figure_1 <- ggplot(animals, aes(x = animal_type, fill = outcome_type)) +

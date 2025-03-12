@@ -1,14 +1,13 @@
 "This script downloads data from the internet and saves it locally
 
 Usage:
-  donwload_shelter_data.R --output_path=<output_path>
+  Script1.R --output_path=<output_path>
 
 Options:
   --output_path=<output_path>  Path to save the downloaded file.
 " -> doc
 
 library(tidyverse)
-library(janitor)
 library(docopt)
 
 opt <- docopt(doc)
