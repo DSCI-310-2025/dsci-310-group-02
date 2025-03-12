@@ -27,7 +27,7 @@ data/clean_shelter_data.csv: code/Script2.R
 # generate figures and objects for EDA
 results/name1.csv results/name2.csv results/name3.csv results/name4.png results/name5.png results/name6.png results/name7.png results/name8.png: code/Script3.R
 	Rscript code/Script3.R --path_data="clean_shelter_data.csv" \
-		--folder="results"
+		--folder="results" \
 		--name1="name1.csv" \
 		--name2="name2.csv" \
 		--name3="name3.csv" \
