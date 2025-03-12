@@ -16,6 +16,6 @@ opt <- docopt(doc)
 animal_shelter <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-03-04/longbeach.csv"
 
 # Download and save dataset
-download.file(dataset_url, opt$output_path, mode = "wb")
+download.file(animal_shelter, opt$output_path, mode = "wb")
 
 print(paste("Data downloaded and saved to:", opt$output_path))
