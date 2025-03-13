@@ -1,7 +1,9 @@
 # author: Audra Cornick
 # date: 2025-03-12
 
-all: results/name1.csv \
+all: data/shelter_data.csv \
+	data/clean_shelter_data.csv \
+	results/name1.csv \
 	results/name2.csv \
 	results/name3.csv \
 	results/name4.png \
@@ -9,24 +11,25 @@ all: results/name1.csv \
 	results/name6.png \
 	results/name7.png \
 	results/name8.png \
-	results/roc_curve.png \
+	results/elbow_plot.png \
+	results/confusion_matrix.png \
 	results/summary.csv \
 	analysis/animal_shelter_adoptability_analysis.html \
-	analysis/animal_shelter_adoptability_analysis.pdf
+	analysis/animal_shelter_adoptability_analysis.pdf \
+	docs/index.html
 
 
 # generate cleaned csv
 data/shelter_data.csv: code/Script1.R
-	Rscript code/01_download_shelter_data.R \
-		--out_dir="data"
+	Rscript code/script1.R \
+		--output_path="data/shelter_data.csv"
 
-data/clean_shelter_data.csv: code/Script2.R
-	Rscript code/02_shelter_data_cleaning.R --input_dir="shelter_data.csv" \
-		--out_dir="data"
+data/clean_shelter_data.csv: data/shelter_data.csv code/Script2.R
+	Rscript code/script2.R --input_file_path="data/shelter_data.csv" --output_file_path="data/clean_shelter_data.csv"
 
 # generate figures and objects for EDA
-results/name1.csv results/name2.csv results/name3.csv results/name4.png results/name5.png results/name6.png results/name7.png results/name8.png: code/Script3.R
-	Rscript code/Script3.R --path_data="clean_shelter_data.csv" \
+results/name1.csv results/name2.csv results/name3.csv results/name4.png results/name5.png results/name6.png results/name7.png results/name8.png: data code/Script3.R
+	Rscript code/Script3.R --path_data="data/clean_shelter_data.csv" \
 		--folder="results" \
 		--name1="name1.csv" \
 		--name2="name2.csv" \
@@ -38,9 +41,9 @@ results/name1.csv results/name2.csv results/name3.csv results/name4.png results/
 		--name8="name8.png"
 
 # generate figures for analysis
-results/roc_curve.png results/summary.csv: code/Script4.R
-	Rscript code/Script4.R --input_path="clean_shelter_data.csv" \
-		--output_path="results"
+results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data code/Script4.R
+	Rscript code/Script4.R --input_path="data/clean_shelter_data.csv" \
+		--output_prefix="results"
 
 # render quarto report in HTML and PDF
 analysis/animal_shelter_adoptability_analysis.html: results analysis/animal_shelter_adoptability_analysis.qmd
@@ -49,10 +52,14 @@ analysis/animal_shelter_adoptability_analysis.html: results analysis/animal_shel
 analysis/animal_shelter_adoptability_analysis.pdf: results analysis/animal_shelter_adoptability_analysis.qmd
 	quarto render analysis/animal_shelter_adoptability_analysis.qmd --to pdf
 
+docs/index.html: analysis/animal_shelter_adoptability_analysis.html
+	cp analysis/animal_shelter_adoptability_analysis.html docs/index.html
+
 # clean
 clean:
-	rm -rf results
+	rm -rf results/*
 	rm -rf analysis/animal_shelter_adoptability_analysis.html \
 		analysis/animal_shelter_adoptability_analysis.pdf \
 		analysis/animal_shelter_adoptability_analysise_files \
-		data/shelter_data.csv data/clean_shelter_data.csv
+		data/shelter_data.csv data/clean_shelter_data.csv \
+		docs/index.html
