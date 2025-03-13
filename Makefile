@@ -12,7 +12,7 @@ all: data/shelter_data.csv \
 	results/name7.png \
 	results/name8.png \
 	results/elbow_plot.png \
-	results/roc_curve.png \
+	results/confusion_matrix.png \
 	results/summary.csv \
 	analysis/animal_shelter_adoptability_analysis.html \
 	analysis/animal_shelter_adoptability_analysis.pdf \
@@ -41,7 +41,7 @@ results/name1.csv results/name2.csv results/name3.csv results/name4.png results/
 		--name8="name8.png"
 
 # generate figures for analysis
-results/elbow_plot.png results/roc_curve.png results/summary.csv: data code/Script4.R
+results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data code/Script4.R
 	Rscript code/Script4.R --input_path="data/clean_shelter_data.csv" \
 		--output_prefix="results"
 

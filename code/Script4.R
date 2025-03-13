@@ -7,6 +7,7 @@ Options:
   --input_path=<input_path>       Path to the cleaned dataset.
   --output_prefix=<output_prefix>  Prefix for saving output figures and tables.
 " -> doc
+print("Script started")
 
 library(tidyverse)
 library(tidymodels)
@@ -16,6 +17,8 @@ library(ggplot2)
 opt <- docopt(doc)
 
 animals <- read_csv(opt$input_path)
+print("Data loaded")
+
 
 set.seed(2) 
 
@@ -62,6 +65,7 @@ accuracies <- knn_workflow |>
 head(accuracies)
 
 #graph results to find the k value that gives the best accuracy
+print("Generating elbow plot")
 accuracy_versus_k<-ggplot(accuracies, aes (x=neighbors, y=mean))+
   geom_point()+
   geom_line()+
@@ -72,7 +76,7 @@ accuracy_versus_k
 
 # Save Figure
 fig_path <- paste0(opt$output_prefix, "elbow_plot.png",sep="")
-ggsave(fig_path, plot = accuracy_vs_k, width = 6, height = 4)
+ggsave(fig_path, plot = accuracy_versus_k, width = 6, height = 4)
 print(paste("Elbow Plot saved to:", fig_path))
 
 knn_model <-nearest_neighbor(weight_func = 'rectangular', neighbors = 5) |> 
@@ -84,11 +88,17 @@ knn_fit <- workflow() |>
   add_model(knn_model) |> 
   fit(data = train_data)
 
-predictions <- predict(knn_fit, new_data = test_data) |> 
+predictions <- predict(knn_fit, new_data = test_data, type = "prob") |> 
   bind_cols(test_data)
 
 predictions <- predictions %>%
   mutate(outcome_group = factor(outcome_group))
+
+
+predictions <- predictions %>%
+  mutate(.pred_class = ifelse(.pred_Adopted >= `.pred_Not Adopted`, "Adopted", "Not Adopted")) %>%
+  mutate(.pred_class = factor(.pred_class, levels = levels(outcome_group)))
+
 
 confusion_matrix <- conf_mat(predictions, truth = outcome_group, estimate = .pred_class)
 
@@ -99,7 +109,8 @@ cm_tibble <- confusion_matrix$table %>%
   rename(Truth = 1, Prediction = 2, Count = 3)
 
 #confusion matrix 
-ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)) +
+
+metrics_result <- ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)) +
   geom_tile() +
   geom_text(aes(label = Count), color = "white", size = 5) +
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
@@ -107,16 +118,18 @@ ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)) +
   theme_minimal()
 
 # Save Figure
-fig_path <- paste0(opt$output_prefix, "roc_curve.png",sep="")
+
+fig_path <- paste0(opt$output_prefix, "confusion_matrix.png",sep="")
 ggsave(fig_path, plot = metrics_result, width = 6, height = 4)
-print(paste("ROC Curve saved to:", fig_path))
+print(paste("Confusion Matrix saved to:", fig_path))
+
 
 # Save Table with summary statistics
 summary_table <- predictions %>%
-  group_by(adopted) %>%
+  group_by(outcome_group) %>%
   summarise(
-    mean_pred = mean(.pred_1),
-    sd_pred = sd(.pred_1)
+    mean_pred = mean(.pred_Adopted, na.rm = TRUE), 
+    sd_pred = sd(.pred_Adopted, na.rm = TRUE)
   )
 
 table_path <- paste0(opt$output_prefix, "summary.csv",sep="")
