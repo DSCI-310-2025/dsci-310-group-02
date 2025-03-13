@@ -70,6 +70,11 @@ accuracy_versus_k<-ggplot(accuracies, aes (x=neighbors, y=mean))+
   scale_y_continuous(limits=c(0.4, 1.0))
 accuracy_versus_k
 
+# Save Figure
+fig_path <- paste0(opt$output_prefix, "elbow_plot.png",sep="")
+ggsave(fig_path, plot = accuracy_vs_k, width = 6, height = 4)
+print(paste("Elbow Plot saved to:", fig_path))
+
 knn_model <-nearest_neighbor(weight_func = 'rectangular', neighbors = 5) |> 
   set_engine('kknn') |> 
   set_mode('classification')
@@ -102,7 +107,7 @@ ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)) +
   theme_minimal()
 
 # Save Figure
-fig_path <- paste0(opt$output_prefix, "_roc_curve.png")
+fig_path <- paste0(opt$output_prefix, "roc_curve.png",sep="")
 ggsave(fig_path, plot = metrics_result, width = 6, height = 4)
 print(paste("ROC Curve saved to:", fig_path))
 
@@ -114,6 +119,6 @@ summary_table <- predictions %>%
     sd_pred = sd(.pred_1)
   )
 
-table_path <- paste0(opt$output_prefix, "_summary.csv")
+table_path <- paste0(opt$output_prefix, "summary.csv",sep="")
 write_csv(summary_table, table_path)
 print(paste("Summary table saved to:", table_path))
