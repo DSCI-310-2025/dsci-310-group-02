@@ -3,14 +3,14 @@
 
 all: data/shelter_data.csv \
 	data/clean_shelter_data.csv \
-	results/name1.csv \
-	results/name2.csv \
-	results/name3.csv \
-	results/name4.png \
-	results/name5.png \
-	results/name6.png \
-	results/name7.png \
-	results/name8.png \
+	results/data-summary.csv \
+	results/target-summary.csv \
+	results/intake-summary.csv \
+	results/type-v-type-plot.png \
+	results/type-v-group-plot.png \
+	results/cond-v-type-plot.png \
+	results/cond-v-group-plot.png \
+	results/age-v-group-plot.png \
 	results/elbow_plot.png \
 	results/confusion_matrix.png \
 	results/summary.csv \
