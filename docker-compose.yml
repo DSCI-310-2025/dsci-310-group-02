@@ -3,5 +3,5 @@ services:
     image: ribbitsm/dsci310-group-02:animal_shelter_image_group2
     ports:
       - "8787:8787"
-    environments:
-      - DISABLE_AUTH: true
+    environment:
+      DISABLE_AUTH: true
