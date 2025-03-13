@@ -118,9 +118,9 @@ decided to show a more detailed look of the different intake conditions.
 ```{r}
 #| output: false
 #read in all the tables
-table1 <- read_csv('../results/name1.csv')
-table2 <- read_csv('../results/name2.csv')
-table3 <- read_csv('../results/name3.csv')
+table1 <- read_csv('../results/data-summary.csv')
+table2 <- read_csv('../results/target-summary.csv')
+table3 <- read_csv('../results/intake-summary.csv')
 ```
 
 ```{r}
@@ -143,19 +143,19 @@ kable(table3)
 
 ## Exploratory Analysis Visualizations 
 
-![Animal Type vs Outcome Type](../results/name4.png){width=75% #fig-typetype}
+![Animal Type vs Outcome Type](../results/type-v-type-plot.png){width=75% #fig-typetype}
 
-![Animal Type vs Outcome Group (adopted / not adopted)](../results/name5.png){width=75% #fig-typegroup}
+![Animal Type vs Outcome Group (adopted / not adopted)](../results/type-v-group-plot.png){width=75% #fig-typegroup}
 
-**Explanation of Relevance:** Based on @fig-type_type and @fig-type_group, we can see a high adoptability rate if the
+**Explanation of Relevance:** Based on @fig-typetype and @fig-typegroup, we can see a high adoptability rate if the
 animal is livestock, a rabbit, a guinea pig, a reptile, or a cat. This is relevant to our question as it allows us to
 see which animal types are the most likely to get adopted overall in comparison to some that may be returned to the wild
 or euthanized. However, it's important to note that when we look at the Animal Type vs Outcome type visualization, a
 large proportion of animals get returned to owners and to the wild. 
 
-![Intake Condition vs Outcome Type](../results/name6.png){width=75% #fig-condtype}
+![Intake Condition vs Outcome Type](../results/cond-v-type-plot.png){width=75% #fig-condtype}
 
-![Intake Condition vs Outcome Group (adopted / not adopted)](../results/name7.png){width=75% #fig-condgroup}
+![Intake Condition vs Outcome Group (adopted / not adopted)](../results/cond-v-group-plot.png){width=75% #fig-condgroup}
 
 **Explanation of Relevance:** Based on @fig-condtype and @fig-condgroup we can see there is a clear
 relationship between animals that are severely ill and/or injured, feral, have welfare seizures, and have severe
@@ -169,7 +169,7 @@ could focus on helping these animals get adopted more often through appealing em
 their reach to 'market' the shelter animals to a wider audience that may be more willing to take in animals that require
 more care.  
 
-![Age at Intake vs Outcome Group (adopted / not adopted)](../results/name8.png){width=75% #fig-age}
+![Age at Intake vs Outcome Group (adopted / not adopted)](../results/age-v-group-plot.png){width=75% #fig-age}
 
 **Explanation of Relevance:** Based on @fig-age, we can see that the median age for animals that end up being adopted is
 slightly lower than those that don't end up getting adopted. However, both groups have a large number of outliers for
@@ -211,19 +211,18 @@ point where any significant improvement in accuracy begins to plateau and choosi
 potentially lead to over fitting the model. Using this k, we fitted our model on the training data and generated
 predictions based on our test data. 
 
-```{r}
-#![ROC plot for our model](../results/roc_curve.png){width=75% #fig-roc}
-```{r}
+![Confusion Matrix for our model](../results/confusion_matrix.png){width=75% #fig-confmat}
+
 ```{r}
 #| label: tbl-modelsum
 #| tbl-cap: Summary statistics based on our models prediction
-#model_summary <- read_csv(../results/summary.csv)
+model_summary <- read_csv(../results/summary.csv)
 
-#model_summary
+kable(model_summary)
 ```
 
-To visualize our results, we created a roc plot (@fig-roc) to assess our model's performance and some summary statistics
-(@tbl-modelsum) to assess our model's accuracy.
+To visualize our results, we created a confusion matrix (@fig-confmat) to assess our model's performance and some summary
+statistics (@tbl-modelsum) to assess our model's accuracy.
 
 # Discussion
 
