@@ -109,6 +109,7 @@ cm_tibble <- confusion_matrix$table %>%
   rename(Truth = 1, Prediction = 2, Count = 3)
 
 #confusion matrix 
+
 metrics_result <- ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)) +
   geom_tile() +
   geom_text(aes(label = Count), color = "white", size = 5) +
@@ -117,6 +118,7 @@ metrics_result <- ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)
   theme_minimal()
 
 # Save Figure
+
 fig_path <- paste0(opt$output_prefix, "confusion_matrix.png",sep="")
 ggsave(fig_path, plot = metrics_result, width = 6, height = 4)
 print(paste("Confusion Matrix saved to:", fig_path))
