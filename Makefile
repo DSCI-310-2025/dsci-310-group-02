@@ -20,29 +20,29 @@ all: data/shelter_data.csv \
 
 
 # generate cleaned csv
-data/shelter_data.csv: code/Script1.R
-	Rscript code/script1.R \
+data/shelter_data.csv: code/Script1-read-data.R
+	Rscript code/script1-read-data.R \
 		--output_path="data/shelter_data.csv"
 
-data/clean_shelter_data.csv: data/shelter_data.csv code/Script2.R
-	Rscript code/script2.R --input_file_path="data/shelter_data.csv" --output_file_path="data/clean_shelter_data.csv"
+data/clean_shelter_data.csv: data/shelter_data.csv code/Script2-clean-data.R
+	Rscript code/script2-clean-data.R --input_file_path="data/shelter_data.csv" --output_file_path="data/clean_shelter_data.csv"
 
 # generate figures and objects for EDA
-results/name1.csv results/name2.csv results/name3.csv results/name4.png results/name5.png results/name6.png results/name7.png results/name8.png: data code/Script3.R
-	Rscript code/Script3.R --path_data="data/clean_shelter_data.csv" \
+results/data-summary.csv results/target-summary.csv results/intake-summary.csv results/type-v-type-plot.png results/type-v-group-plot.png results/cond-v-type-plot.png results/cond-v-grouppplot.png results/age-v-groupplot.png: data code/Script3-EDA.R
+	Rscript code/Script3-EDA.R --path_data="data/clean_shelter_data.csv" \
 		--folder="results" \
-		--name1="name1.csv" \
-		--name2="name2.csv" \
-		--name3="name3.csv" \
-		--name4="name4.png" \
-		--name5="name5.png" \
-		--name6="name6.png" \
-		--name7="name7.png" \
-		--name8="name8.png"
+		--name1="data-summary.csv" \
+		--name2="target-summary.csv" \
+		--name3="intake-summary.csv" \
+		--name4="type-v-type-plot.png" \
+		--name5="type-v-group-plot.png" \
+		--name6="cond-v-type-plot.png" \
+		--name7="cond-v-group-plot.png" \
+		--name8="age-v-group-plot.png"
 
 # generate figures for analysis
-results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data code/Script4.R
-	Rscript code/Script4.R --input_path="data/clean_shelter_data.csv" \
+results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data code/Script4-model-results.R
+	Rscript code/Script4-model-results.R --input_path="data/clean_shelter_data.csv" \
 		--output_prefix="results"
 
 # render quarto report in HTML and PDF
