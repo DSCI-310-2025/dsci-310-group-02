@@ -26,6 +26,7 @@ execute:
 #| output: false
 
 library(readr)
+library(knitr)
 ```
 
 # Summary
@@ -70,6 +71,7 @@ better equipped to find homes for as many animals as possible.
 Research Question: Can we predict whether an animal will be adopted based on certain factors?
 
 We used data from the Long Beach Animal Shelter which contains: 
+
 |variable          |class         |description                           |
 |:-----------------|:-------------|:-------------------------------------|
 |animal_id         |character     |Unique identification for each animal. |
@@ -94,7 +96,8 @@ We used data from the Long Beach Animal Shelter which contains:
 |outcome_is_dead   |logical       |Whether animal is dead at outcome. |
 |was_outcome_alive |logical       |Whether animal was alive at outcome. |
 |geopoint          |character     |Latitude and longitude of crossing. |
-: Retrieved from @data {#tbl-data_description}
+
+: Retrieved from @data {#tbl-DataDescription}
 
 # Methods and Results
 
@@ -107,41 +110,42 @@ Additionally, because the `outcome_type` variable had so many different variatio
 into only 2 outcomes (Adopted vs Not Adopted) as that is what we are most interested in. So, we decided to create another
 variable called `outcome_group` to add our analysis of predicting adoptability.
 
-For our summarization of data, we decided to do a statistical overview of the whole dataset ("summary(animals)") in order
-to get a good general view of the categorical and numerical variables. We also decided to show how many animals are
-adopted vs not adopted to see if there are any biases and if there is enough data for both outcomes. Additionally, we
-decided to show a more detailed look of the different outcome types.
+For our summarization of data, we decided to look a detailed look at the outcome types, and we also decided to show how
+many animals are
+adopted vs not adopted to see if there are any biases, and if there is enough data for both outcomes. Additionally, we
+decided to show a more detailed look of the different intake conditions.
 
 ```{r}
 #| output: false
 #read in all the tables
 table1 <- read_csv('../results/name1.csv')
 table2 <- read_csv('../results/name2.csv')
-table3 <- read_csv('../results/name1.csv')
+table3 <- read_csv('../results/name3.csv')
 ```
 
 ```{r}
 #| label: tbl-data
 #| tbl-cap: Summary of data
-table1
+kable(table1)
 ```
 
 ```{r}
 #| label: tbl-Target
 #| tbl-cap: Summary of Target Variable
-table2
+kable(table2)
 ```
 
 ```{r}
 #| label: tbl-intake
 #| tbl-cap: Summary of Intake Condition Variable
-table3
+kable(table3)
 ```
 
 ## Exploratory Analysis Visualizations 
 
-![Animal Type vs Outcome Type](../results/name4.png){width=75% #fig-type_type}
-![Animal Type vs Outcome Group (adopted / not adopted)](../results/name5.png){width=75% #fig-type_group}
+![Animal Type vs Outcome Type](../results/name4.png){width=75% #fig-typetype}
+
+![Animal Type vs Outcome Group (adopted / not adopted)](../results/name5.png){width=75% #fig-typegroup}
 
 **Explanation of Relevance:** Based on @fig-type_type and @fig-type_group, we can see a high adoptability rate if the
 animal is livestock, a rabbit, a guinea pig, a reptile, or a cat. This is relevant to our question as it allows us to
@@ -149,10 +153,11 @@ see which animal types are the most likely to get adopted overall in comparison 
 or euthanized. However, it's important to note that when we look at the Animal Type vs Outcome type visualization, a
 large proportion of animals get returned to owners and to the wild. 
 
-![Intake Condition vs Outcome Type](../results/name6.png){width=75% #fig-condition_type}
-![Intake Condition vs Outcome Group (adopted / not adopted)](../results/name7.png){width=75% #fig-condition_group}
+![Intake Condition vs Outcome Type](../results/name6.png){width=75% #fig-condtype}
 
-**Explanation of Relevance:** Based on @fig-condition_type and @fig-condition_group we can see there is a clear
+![Intake Condition vs Outcome Group (adopted / not adopted)](../results/name7.png){width=75% #fig-condgroup}
+
+**Explanation of Relevance:** Based on @fig-condtype and @fig-condgroup we can see there is a clear
 relationship between animals that are severely ill and/or injured, feral, have welfare seizures, and have severe
 behavioral problems when they arrive at the shelter and not having a high adoptability rate later on. This can also be
 explained by looking at the Intake Condition vs Outcome Type visualization, as we can see that there are high rates of
@@ -201,7 +206,7 @@ To tune our model, we found the accuracy of the model using different numbers of
 higher the k value, the more complex our model becomes, so it is important to ensure that the k is not too high and
 causing the model to over fit to our training data, and not be general enough to accurately predict the training data.
 
-Using the elbow graph above, we found that the best number of neighbors (k) for our classification is 5. This is the
+Using @fig-elbow, we found that the best number of neighbors (k) for our classification is 5. This is the
 point where any significant improvement in accuracy begins to plateau and choosing a k value that is larger could
 potentially lead to over fitting the model. Using this k, we fitted our model on the training data and generated
 predictions based on our test data. 

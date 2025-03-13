@@ -32,8 +32,7 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #create and save the first graph
     figure_1 <- ggplot(animals, aes(x = animal_type, fill = outcome_type)) +
         geom_bar(position = "fill") +  
-        labs(title = "Figure 1: Animal Type vs Outcome Type",
-            x = "Animal Type",
+        labs(x = "Animal Type",
             y = "Proportion") +
         theme_minimal() +
         scale_y_continuous(labels = scales::percent)
@@ -43,8 +42,7 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #create and save the second graph
     figure_2 <- ggplot(animals, aes(x = animal_type, fill = outcome_group)) +
         geom_bar(position = "fill") + 
-        labs(title = "Figure 2: Animal Type vs Outcome Group (adopted / not adopted)",
-            x = "Animal Type",
+        labs(x = "Animal Type",
             y = "Proportion") +
         theme_minimal() +
         scale_y_continuous(labels = scales::percent)
@@ -54,8 +52,7 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #create and save the third graph
     figure_3 <- ggplot(animals, aes(x = intake_condition, fill = outcome_type)) +
         geom_bar(position = "fill") + 
-        labs(title = "Figure 3: Intake Condition vs Outcome Type",
-            x = "Intake Condition",
+        labs(x = "Intake Condition",
             y = "Proportion") +
         theme_minimal() +
         scale_y_continuous(labels = scales::percent) +
@@ -66,8 +63,7 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #create and save the fourth graph
     figure_4 <- ggplot(animals, aes(x = intake_condition, fill = outcome_group)) +
         geom_bar(position = "fill") +
-        labs(title = "Figure 4: Intake Condition vs Outcome Group (adopted / not adopted)",
-            x = "Intake Condition",
+        labs(x = "Intake Condition",
             y = "Proportion") +
         theme_minimal() +
         scale_y_continuous(labels = scales::percent) +
@@ -80,8 +76,7 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #create and save the fifth graph
     figure_5 <- ggplot(animals, aes(x = outcome_group, y = age_at_intake, fill = outcome_group)) +
         geom_boxplot() +
-        labs(title = "Figure 5: Age at Intake vs Outcome Group (adopted / not adopted)",
-            x = "Outcome Type",
+        labs(x = "Outcome Type",
             y = "Age at Intake (Years)") +
         theme_minimal()
     
