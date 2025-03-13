@@ -26,12 +26,6 @@ execute:
 #| output: false
 
 library(readr)
-library(tidyverse)
-library(ggplot2) 
-library(dplyr) 
-library(tidymodels)
-library(caret) 
-library(gridExtra)
 ```
 
 # Summary
@@ -121,9 +115,9 @@ decided to show a more detailed look of the different outcome types.
 ```{r}
 #| output: false
 #read in all the tables
-table1 <- readcsv('../results/name1.csv')
-table2 <- readcsv('../results/name2.csv')
-table3 <- readcsv('../results/name1.csv')
+table1 <- read_csv('../results/name1.csv')
+table2 <- read_csv('../results/name2.csv')
+table3 <- read_csv('../results/name1.csv')
 ```
 
 ```{r}
@@ -207,29 +201,20 @@ To tune our model, we found the accuracy of the model using different numbers of
 higher the k value, the more complex our model becomes, so it is important to ensure that the k is not too high and
 causing the model to over fit to our training data, and not be general enough to accurately predict the training data.
 
-```{r}
-#graph results to find the k value that gives the best accuracy
-accuracy_versus_k<-ggplot(accuracies, aes (x=neighbors, y=mean))+
-  geom_point()+
-  geom_line()+
-  labs(title = "Figure 6: Elbow Plot", x= "Neighbors", y= "Accuracy Estimate")+
-  scale_x_continuous(breaks=seq(0,25, by=1))+
-  scale_y_continuous(limits=c(0.4, 1.0))
-accuracy_versus_k
-```
-
 Using the elbow graph above, we found that the best number of neighbors (k) for our classification is 5. This is the
 point where any significant improvement in accuracy begins to plateau and choosing a k value that is larger could
 potentially lead to over fitting the model. Using this k, we fitted our model on the training data and generated
 predictions based on our test data. 
 
-![ROC plot for our model](../results/roc_curve.png){width=75% #fig-roc}
+```{r}
+#![ROC plot for our model](../results/roc_curve.png){width=75% #fig-roc}
+```{r}
 ```{r}
 #| label: tbl-modelsum
 #| tbl-cap: Summary statistics based on our models prediction
-model_summary <- read_csv(../results/summary.csv)
+#model_summary <- read_csv(../results/summary.csv)
 
-model_summary
+#model_summary
 ```
 
 To visualize our results, we created a roc plot (@fig-roc) to assess our model's performance and some summary statistics

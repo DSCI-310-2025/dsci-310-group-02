@@ -11,10 +11,12 @@ all: data/shelter_data.csv \
 	results/name6.png \
 	results/name7.png \
 	results/name8.png \
+	results/elbow_plot.png \
 	results/roc_curve.png \
 	results/summary.csv \
 	analysis/animal_shelter_adoptability_analysis.html \
-	analysis/animal_shelter_adoptability_analysis.pdf
+	analysis/animal_shelter_adoptability_analysis.pdf \
+	docs/index.html
 
 
 # generate cleaned csv
@@ -39,9 +41,9 @@ results/name1.csv results/name2.csv results/name3.csv results/name4.png results/
 		--name8="name8.png"
 
 # generate figures for analysis
-results/roc_curve.png results/summary.csv: code/Script4.R
-	Rscript code/Script4.R --input_path="clean_shelter_data.csv" \
-		--output_path="results"
+results/elbow_plot.png results/roc_curve.png results/summary.csv: data code/Script4.R
+	Rscript code/Script4.R --input_path="data/clean_shelter_data.csv" \
+		--output_prefix="results"
 
 # render quarto report in HTML and PDF
 analysis/animal_shelter_adoptability_analysis.html: results analysis/animal_shelter_adoptability_analysis.qmd
@@ -50,10 +52,14 @@ analysis/animal_shelter_adoptability_analysis.html: results analysis/animal_shel
 analysis/animal_shelter_adoptability_analysis.pdf: results analysis/animal_shelter_adoptability_analysis.qmd
 	quarto render analysis/animal_shelter_adoptability_analysis.qmd --to pdf
 
+docs/index.html: analysis/animal_shelter_adoptability_analysis.html
+	cp analysis/animal_shelter_adoptability_analysis.html docs/index.html
+
 # clean
 clean:
-	rm -rf results
+	rm -rf results/*
 	rm -rf analysis/animal_shelter_adoptability_analysis.html \
 		analysis/animal_shelter_adoptability_analysis.pdf \
 		analysis/animal_shelter_adoptability_analysise_files \
-		data/shelter_data.csv data/clean_shelter_data.csv
+		data/shelter_data.csv data/clean_shelter_data.csv \
+		docs/index.html
