@@ -70,7 +70,7 @@ print("Generating elbow plot")
 accuracy_versus_k<-ggplot(accuracies, aes (x=neighbors, y=mean))+
   geom_point()+
   geom_line()+
-  labs(title = "Figure 6: Elbow Plot", x= "Neighbors", y= "Accuracy Estimate")+
+  labs(x= "Neighbors", y= "Accuracy Estimate")+
   scale_x_continuous(breaks=seq(0,25, by=1))+
   scale_y_continuous(limits=c(0.4, 1.0))
 accuracy_versus_k
