@@ -12,7 +12,6 @@ execute:
 ---
 
 
-
 ### Group 2
 ### Members: 
 - Audra Cornick
@@ -216,7 +215,7 @@ predictions based on our test data.
 ```{r}
 #| label: tbl-modelsum
 #| tbl-cap: Summary statistics based on our models prediction
-model_summary <- read_csv(../results/summary.csv)
+model_summary <- read_csv("../results/summary.csv")
 
 kable(model_summary)
 ```

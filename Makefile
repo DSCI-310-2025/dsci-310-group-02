@@ -41,7 +41,7 @@ results/data-summary.csv results/target-summary.csv results/intake-summary.csv r
 		--name8="age-v-group-plot.png"
 
 # generate figures for analysis
-results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data code/Script4-model-results.R
+results/elbow_plot.png results/confusion_matrix.png results/summary.csv: data/clean_shelter_data.csv code/Script4-model-results.R
 	Rscript code/Script4-model-results.R --input_path="data/clean_shelter_data.csv" \
 		--output_prefix="results"
 

@@ -50,9 +50,9 @@ knn_spec <- nearest_neighbor(weight_func = 'rectangular', neighbors = tune()) |>
   set_engine('kknn') |> 
   set_mode('classification')
 
-shelter_vfold <- vfold_cv(train_data, v = 5, strata = outcome_group)
+shelter_vfold <- vfold_cv(train_data, v = 3, strata = outcome_group)
 
-possible_k <- tibble(neighbors = seq(from = 1, to = 10))
+possible_k <- tibble(neighbors = seq(from = 3, to = 7))
 
 knn_workflow <- workflow() |> 
   add_recipe(recipe) |> 
@@ -75,7 +75,7 @@ accuracy_versus_k<-ggplot(accuracies, aes (x=neighbors, y=mean))+
 accuracy_versus_k
 
 # Save Figure
-fig_path <- paste0(opt$output_prefix, "elbow_plot.png",sep="")
+fig_path <- paste0(opt$output_prefix, "/elbow_plot.png",sep="")
 ggsave(fig_path, plot = accuracy_versus_k, width = 6, height = 4)
 print(paste("Elbow Plot saved to:", fig_path))
 
@@ -119,7 +119,7 @@ metrics_result <- ggplot(cm_tibble, aes(x = Prediction, y = Truth, fill = Count)
 
 # Save Figure
 
-fig_path <- paste0(opt$output_prefix, "confusion_matrix.png",sep="")
+fig_path <- paste0(opt$output_prefix, "/confusion_matrix.png",sep="")
 ggsave(fig_path, plot = metrics_result, width = 6, height = 4)
 print(paste("Confusion Matrix saved to:", fig_path))
 
@@ -132,6 +132,6 @@ summary_table <- predictions %>%
     sd_pred = sd(.pred_Adopted, na.rm = TRUE)
   )
 
-table_path <- paste0(opt$output_prefix, "summary.csv",sep="")
+table_path <- paste0(opt$output_prefix, "/summary.csv",sep="")
 write_csv(summary_table, table_path)
 print(paste("Summary table saved to:", table_path))
