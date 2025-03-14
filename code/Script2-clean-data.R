@@ -9,7 +9,8 @@ Usage: Script2.R --input_file_path=<input_file_path> --output_file_path=<output_
 " -> doc
 
 
-library(tidyverse)
+library(readr)
+library(dplyr)
 library(docopt)
 
 opt <- docopt(doc)

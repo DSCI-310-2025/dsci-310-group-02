@@ -7,7 +7,7 @@ Options:
   --output_path=<output_path>  Path to save the downloaded file.
 " -> doc
 
-library(tidyverse)
+library(readr)
 library(docopt)
 
 opt <- docopt(doc)
