@@ -9,7 +9,8 @@ Options:
 " -> doc
 print("Script started")
 
-library(tidyverse)
+library(readr)
+library(dplyr)
 library(tidymodels)
 library(docopt)
 library(ggplot2)

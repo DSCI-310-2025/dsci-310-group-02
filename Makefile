@@ -21,11 +21,11 @@ all: data/shelter_data.csv \
 
 # generate cleaned csv
 data/shelter_data.csv: code/Script1-read-data.R
-	Rscript code/script1-read-data.R \
+	Rscript code/Script1-read-data.R \
 		--output_path="data/shelter_data.csv"
 
 data/clean_shelter_data.csv: data/shelter_data.csv code/Script2-clean-data.R
-	Rscript code/script2-clean-data.R --input_file_path="data/shelter_data.csv" --output_file_path="data/clean_shelter_data.csv"
+	Rscript code/Script2-clean-data.R --input_file_path="data/shelter_data.csv" --output_file_path="data/clean_shelter_data.csv"
 
 # generate figures and objects for EDA
 results/data-summary.csv results/target-summary.csv results/intake-summary.csv results/type-v-type-plot.png results/type-v-group-plot.png results/cond-v-type-plot.png results/cond-v-grouppplot.png results/age-v-groupplot.png: data code/Script3-EDA.R
