@@ -205,6 +205,8 @@ To tune our model, we found the accuracy of the model using different numbers of
 higher the k value, the more complex our model becomes, so it is important to ensure that the k is not too high and
 causing the model to over fit to our training data, and not be general enough to accurately predict the training data.
 
+![Elbow Plot of various neighbor numbers](../results/elbow_plot.png){width=75% $fig-elbow}
+
 Using @fig-elbow, we found that the best number of neighbors (k) for our classification is 5. This is the
 point where any significant improvement in accuracy begins to plateau and choosing a k value that is larger could
 potentially lead to over fitting the model. Using this k, we fitted our model on the training data and generated
