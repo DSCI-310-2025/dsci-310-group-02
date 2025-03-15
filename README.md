@@ -28,13 +28,19 @@ In your terminal, run the command
 
 `docker pull ribbitsm/dsci310-group-02:animal_shelter_image_group2`
 
-This will get the container onto your local computer. Then make sure your working directory is still in the root of the repository and run
+This will pull the container onto your local computer. 
 
+Then use one of the two following methods to run the container.
+
+1. Use the provided docker-compose.yaml file in this repository to start the container. In the directory containing the downloaded/pulled compose file, run
 `docker-compose up`
+
+2. Run the container manually, with 
+`docker run -it --rm -e PASSWORD=“group2” -p 8787:8787 ribbitsm/dsci310-group-02:animal_shelter_image_group2`
 
 This will start the container. To Run the analysis open a browser window and go to `http://localhost:8787/`, which will open an Rstudio window. Go to the Rstudio terminal and use the command
 
-`make all`
+`make`
 
 which will run all the various analysis scripts to clean the data, create EDA figures and tables, and create the model and visualizations. It will also create an `index.html` file in the `docs` folder to allow you to easily view the full report.
 
