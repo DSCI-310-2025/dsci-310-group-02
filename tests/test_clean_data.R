@@ -6,9 +6,9 @@ set.seed(2)
 source(here::here("R", "clean_data.R"))
 
 test_df <- tibble(
-    animal_type = c("dog", "cat", "reptile", "bird"),
+    animal_type = c("dog", "cat", "reptile", NA),
     animal_name = c("spot", "charlene", "emily", "roger"),
-    primary_color = c("black", "brown", "white", "green"),
+    primary_color = c("black", "brown", "white", NA),
     secondary_color = c("gray", "red", "yellow", "blue"),
     sex = c("Female", "Male", "Neutered", "Spayed"),
     dob = as.Date(c("2013-02-18", "2021-03-15", "2024-10-10","2023-08-16")),
