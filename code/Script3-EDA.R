@@ -9,7 +9,7 @@ library(docopt)
 library(dplyr)
 library(ggplot2)
 library(readr)
-source("R/make-barplot.R")
+source("R/make_barplot.R")
 
 opt <- docopt(doc)
 

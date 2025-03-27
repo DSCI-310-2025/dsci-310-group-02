@@ -3,22 +3,13 @@ library(ggplot2)
 library(rlang)
 
 
-source("make-barplot.R") 
+source("make_barplot.R") 
 
 # Create a mock dataset for testing
 test_data <- data.frame(
   category = rep(c("A", "B", "C"), each = 10),
   outcome = rep(c("X", "Y"), 15)
 )
-
-
-# Expected output: One barplot with the correct categories and proportions.
-expected_plot <- ggplot(test_data, aes(x = category, fill = outcome)) +
-  geom_bar(position = "fill") + 
-  labs(x = "Category", y = "Outcome Proportion") +
-  theme_minimal() +
-  scale_y_continuous(labels = scales::percent) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # tests for valid inputs
 test_that("Valid input - make_barplot() works as expected", {
@@ -65,10 +56,10 @@ test_that("Invalid data - throws an error when numeric values are in the y-axis 
 })
 
 test_that("Missing argument - throws an error when dataset is missing", {
-  expect_error(make_barplot(NULL, "category", "Category", "value", "Proportion"))
+  expect_error(make_barplot(NULL, "category", "Category", "outcome", "Proportion"))
 })
 test_that("Missing argument - throws an error when x is missing", {
-  expect_error(make_barplot(test_data, NULL, "Category", "value", "Proportion"))
+  expect_error(make_barplot(test_data, NULL, "Category", "outcome", "Proportion"))
 })
 
 test_that("Handles unexpected errors gracefully", {
