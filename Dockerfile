@@ -7,6 +7,7 @@ COPY data data/
 COPY results results/
 COPY docs docs/
 COPY Makefile .
+COPY R R/
 
 RUN Rscript -e "install.packages('remotes', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('readr', version='2.1.5', repos='https://cloud.r-project.org/')"
