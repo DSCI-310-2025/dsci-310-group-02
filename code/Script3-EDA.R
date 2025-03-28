@@ -9,7 +9,8 @@ library(docopt)
 library(dplyr)
 library(ggplot2)
 library(readr)
-source("R/make_barplot.R")
+source(here::here("R", "make_table.R"))
+source(here::here("R", "make_barplot.R"))
 
 opt <- docopt(doc)
 
@@ -18,17 +19,14 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     #read in cleaned data
     animals <- read_csv(path_data)
 
-    #create and save the first table
-    table_1 <- table(animals$outcome_group)
-    write_csv(as.data.frame(table_1), file=paste(folder,"/",name1,sep=""))
+    #create and save a table about the outcome group variable
+    make_table(animals$outcome_group, folder, name1)
 
-    #create and save the second table
-    table_2 <- table(animals$outcome_type)
-    write_csv(as.data.frame(table_2), file=paste(folder,"/",name2,sep=""))
+    #create and save a table about the outcome type variable
+    make_table(animals$outcome_type, folder, name2)
 
-    #create and save the third table
-    table_3 <- table(animals$intake_condition)
-    write_csv(as.data.frame(table_3), file=paste(folder,"/",name3,sep=""))
+    #create and save a table about the intake condition variable
+    make_table(animals$intake_condition, folder, name3)
 
     #create and save the first graph
     figure_1 <- make_barplot(animals, "animal_type", "Animal Type", "outcome_type", "Proportion")
