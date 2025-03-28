@@ -9,7 +9,8 @@ library(docopt)
 library(dplyr)
 library(ggplot2)
 library(readr)
-source("../R/make_table.R")
+source(here::here("R", "make_table.R"))
+source(here::here("R", "make_barplot.R"))
 
 opt <- docopt(doc)
 
@@ -28,48 +29,24 @@ main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, na
     make_table(animals$intake_condition, folder, name3)
 
     #create and save the first graph
-    figure_1 <- ggplot(animals, aes(x = animal_type, fill = outcome_type)) +
-        geom_bar(position = "fill") +  
-        labs(x = "Animal Type",
-            y = "Proportion") +
-        theme_minimal() +
-        scale_y_continuous(labels = scales::percent)
+    figure_1 <- make_barplot(animals, "animal_type", "Animal Type", "outcome_type", "Proportion")
     
     ggsave(filename=name4, path=folder)
 
     #create and save the second graph
-    figure_2 <- ggplot(animals, aes(x = animal_type, fill = outcome_group)) +
-        geom_bar(position = "fill") + 
-        labs(x = "Animal Type",
-            y = "Proportion") +
-        theme_minimal() +
-        scale_y_continuous(labels = scales::percent)
+    figure_2 <- make_barplot(animals, "animal_type", "Animal Type", "outcome_group", "Proportion")
     
     ggsave(filename=name5, path=folder)
 
     #create and save the third graph
-    figure_3 <- ggplot(animals, aes(x = intake_condition, fill = outcome_type)) +
-        geom_bar(position = "fill") + 
-        labs(x = "Intake Condition",
-            y = "Proportion") +
-        theme_minimal() +
-        scale_y_continuous(labels = scales::percent) +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    figure_3 <- make_barplot(animals, "intake_condition", "Intake Condition", "outcome_type", "Proportion")
 
-        ggsave(filename=name6, path=folder)
+    ggsave(filename=name6, path=folder)
     
     #create and save the fourth graph
-    figure_4 <- ggplot(animals, aes(x = intake_condition, fill = outcome_group)) +
-        geom_bar(position = "fill") +
-        labs(x = "Intake Condition",
-            y = "Proportion") +
-        theme_minimal() +
-        scale_y_continuous(labels = scales::percent) +
-        theme(axis.text.x = element_text(angle = 45, hjust = 1))
-    
+    figure_4 <- make_barplot(animals, "intake_condition", "Intake Condition", "outcome_group", "Proportion")
+ 
     ggsave(filename=name7, path=folder)
-
-    
 
     #create and save the fifth graph
     figure_5 <- ggplot(animals, aes(x = outcome_group, y = age_at_intake, fill = outcome_group)) +
