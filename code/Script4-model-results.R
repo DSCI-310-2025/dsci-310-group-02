@@ -14,6 +14,7 @@ library(dplyr)
 library(tidymodels)
 library(docopt)
 library(ggplot2)
+source("R/split_data.R")
 
 opt <- docopt(doc)
 
@@ -36,10 +37,9 @@ animals <- animals |>
 head(animals)
 
 # Splitting data into train and test data
-set.seed(2)
-data_split <- initial_split(animals, prop = 0.7, strata = outcome_group)
-train_data <- training(data_split)
-test_data <- testing(data_split)
+split = split_data(animals, 0.7, 'outcome_group', 2)
+train_data <- split[[1]]
+test_data <- split[[2]]
 head(train_data)
 
 recipe <- recipe(outcome_group ~ ., data = train_data) %>%
@@ -136,3 +136,5 @@ summary_table <- predictions %>%
 table_path <- paste0(opt$output_prefix, "/summary.csv",sep="")
 write_csv(summary_table, table_path)
 print(paste("Summary table saved to:", table_path))
+
+split_data(animal,0.7,outcome_group)
