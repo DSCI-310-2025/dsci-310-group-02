@@ -109,10 +109,10 @@ Additionally, because the `outcome_type` variable had so many different variatio
 into only 2 outcomes (Adopted vs Not Adopted) as that is what we are most interested in. So, we decided to create another
 variable called `outcome_group` to add our analysis of predicting adoptability.
 
-For our summarization of data, we decided to look a detailed look at the outcome types, and we also decided to show how
+For our summarization of data, we decided to take a detailed look at the various outcome types (@tbl-Target), and we also decided to show how
 many animals are
-adopted vs not adopted to see if there are any biases, and if there is enough data for both outcomes. Additionally, we
-decided to show a more detailed look of the different intake conditions.
+adopted vs not adopted (@tbl-group) to see if there are any biases, and if there is enough data for both outcomes. Additionally, we
+decided to show a more detailed look at the `intake_condition` variable (@tbl-intake).
 
 ```{r}
 #| output: false
@@ -123,14 +123,14 @@ table3 <- read_csv('../results/intake-summary.csv')
 ```
 
 ```{r}
-#| label: tbl-data
-#| tbl-cap: Summary of data
+#| label: tbl-group
+#| tbl-cap: Breakdown of outcome_group
 kable(table1)
 ```
 
 ```{r}
 #| label: tbl-Target
-#| tbl-cap: Summary of Target Variable
+#| tbl-cap: Summary of Outcome Types
 kable(table2)
 ```
 
@@ -156,10 +156,10 @@ large proportion of animals get returned to owners and to the wild.
 
 ![Intake Condition vs Outcome Group (adopted / not adopted)](../results/cond-v-group-plot.png){width=75% #fig-condgroup}
 
-**Explanation of Relevance:** Based on @fig-condtype and @fig-condgroup we can see there is a clear
+**Explanation of Relevance:** Based on @fig-condgroup we can see there is a clear
 relationship between animals that are severely ill and/or injured, feral, have welfare seizures, and have severe
 behavioral problems when they arrive at the shelter and not having a high adoptability rate later on. This can also be
-explained by looking at the Intake Condition vs Outcome Type visualization, as we can see that there are high rates of
+explained by looking at @fig-condtype, as we can see that there are high rates of
 ethunaisa for animals that have severe behavior or are severely injured at intake. These visualizations are relevant to
 our question because it shows that animals that need more care are less likely to get adopted, this could be attributed 
 to the animal sadly passing away while at the animal shelter or people being less likely to adopt animals that might need
@@ -215,10 +215,12 @@ predictions based on our test data.
 ![Confusion Matrix for our model](../results/confusion_matrix.png){width=75% #fig-confmat}
 
 ```{r}
+#| output: false
+model_summary <- read_csv("../results/summary.csv")
+````
+````{r}
 #| label: tbl-modelsum
 #| tbl-cap: Summary statistics based on our models prediction
-model_summary <- read_csv("../results/summary.csv")
-
 kable(model_summary)
 ```
 
