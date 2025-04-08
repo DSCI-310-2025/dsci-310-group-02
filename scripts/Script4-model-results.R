@@ -103,8 +103,6 @@ predictions <- predictions %>%
 
 confusion_matrix <- conf_mat(predictions, truth = outcome_group, estimate = .pred_class)
 
-accuracy <- accuracy(predictions, truth = outcome_group, estimate = .pred_class)
-
 cm_tibble <- confusion_matrix$table %>% 
   as_tibble() %>%
   rename(Truth = 1, Prediction = 2, Count = 3)
@@ -124,14 +122,16 @@ fig_path <- paste0(opt$output_prefix, "/confusion_matrix.png",sep="")
 ggsave(fig_path, plot = metrics_result, width = 6, height = 4)
 print(paste("Confusion Matrix saved to:", fig_path))
 
-# Create precision and recall metrics
+# Create accuracy, precision and recall metrics
+accuracy <- accuracy(predictions, truth = outcome_group, estimate = .pred_class)
+
 precision <- precision(predictions, truth = outcome_group, estimate = .pred_class)
 
 recall <- recall(predictions, truth = outcome_group, estimate = .pred_class)
 
 # Save metrics to table and save it as csv
 pr_path <- paste0(opt$output_prefix, "/confmat_summary.csv",sep="")
-pr_table <- bind_rows(precision, recall)
+pr_table <- bind_rows(accuracy, precision, recall)
 write_csv(pr_table, pr_path)
 print(paste("Precision-Recall table saved to:", pr_path))
 

@@ -216,26 +216,29 @@ predictions based on our test data.
 
 ```{r}
 #| output: false
-model_summary <- read_csv("../results/summary.csv")
-````
-````{r}
-#| label: tbl-modelsum
-#| tbl-cap: Summary statistics based on our models prediction
-kable(model_summary)
+model_stats <- read_csv("../results/confmat_summary.csv")
+accuracy <- round(model_stats$.estimate[model_stats$.metric=='accuracy'], 2)
+precision <- round(model_stats$.estimate[model_stats$.metric=='precision'], 2)
+recall <- round(model_stats$.estimate[model_stats$.metric=='recall'], 2)
+```
+```{r}
+#| label: tbl-modelstats
+#| tbl-cap: Summary statistics about our model
+kable(model_stats)
 ```
 
 To visualize our results, we created a confusion matrix (@fig-confmat) to assess our model's performance and some summary
-statistics (@tbl-modelsum) to assess our model's accuracy.
+statistics (@tbl-modelstats) to assess our model's accuracy.
 
 # Discussion
 
-With a final accuracy of around 76%, we can fairly confidently state that we were able to successfully predict whether or
+With a final accuracy of around `{r} accuracy`%, we can fairly confidently state that we were able to successfully predict whether or
 not an animal would be adopted, at least to an extent. Unfortunately, one of the shortcomings of our chosen analysis
 model is the lack of feature importances. K nearest neighbours is a non-parametric model, meaning that it does not use
 coefficients to make its predictions, and as such it is unclear which features in this model contributed the most to this
 final result. However, what we have produced still serves as a valuable tool for shelter owners as a pre-trained model
 designed to predict whether or not an animal will be adopted. Overall, we are glad to see that our model functions well
-as it currently exists, but room for improvement still remains. An accuracy of 76% is good, but not fantastic, and we
+as it currently exists, but room for improvement still remains. An accuracy of `{r} accuracy`% is good, but not fantastic, and we
 would be able to gain even more information by utilizing a model that would allow us to determine which specific factors
 contribute to an animal being adopted or not. These are important questions to consider in the future, and can be easily
 developed with further analysis of this data.
