@@ -3,12 +3,12 @@ library(readr)
 library(dplyr)
 library(docopt)
 
-#cleaning a dataset 
+# cleaning a dataset
 
 clean_animal_shelter_data <- function(df) {
+  # Select only relevant columns
     df <- df %>% 
         select(animal_type, primary_color, sex, dob, intake_condition, intake_type, intake_date, outcome_date, outcome_type) %>% 
-        #filter(animal_type != "other") %>%
         na.omit()
 
     df$outcome_group <- recode(df$outcome_type,
@@ -20,6 +20,7 @@ clean_animal_shelter_data <- function(df) {
                              "euthanasia" = "Not Adopted",
                              .default = "Not Adopted")
   
+# convert dob column to age column
 df$age_at_intake <- as.numeric(difftime(Sys.Date(), df$dob, units = "days")) / 365
 
 return(df)
