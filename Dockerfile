@@ -1,13 +1,14 @@
 FROM rocker/rstudio:4.4.2
 
 WORKDIR /home/rstudio
-COPY analysis analysis/
-COPY code code/
-COPY data data/
-COPY results results/
-COPY docs docs/
-COPY Makefile .
 COPY R R/
+COPY data data/
+COPY docs docs/
+COPY reports reports/
+COPY results results/
+COPY scripts scripts/
+COPY tests tests/
+COPY Makefile .
 
 RUN Rscript -e "install.packages('remotes', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('readr', version='2.1.5', repos='https://cloud.r-project.org/')"
