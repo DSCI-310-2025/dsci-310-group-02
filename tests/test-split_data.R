@@ -16,9 +16,7 @@
 #' @export
 #' @examples
 #' data_split(countries_df, 0.8, continent)
-data_split <- function(df, prop, strata, seed) {
-    #splits dataframe into train and test dataframes
-}
+
 
 library(testthat)
 source("R/split_data.R")
