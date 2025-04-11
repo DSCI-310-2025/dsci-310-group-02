@@ -18,5 +18,6 @@ RUN Rscript -e "remotes::install_version('docopt', version='0.7.1', repos='https
 RUN Rscript -e "remotes::install_version('knitr', version='1.49', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('kknn', version='1.3.1', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "remotes::install_version('rmarkdown', version='2.29', repos='https://cloud.r-project.org/')"
+RUN Rscript -e "remotes::install_version('pointblank', version='0.12.2', repos='https://cloud.r-project.org/')"
 
 RUN chown -R rstudio .
