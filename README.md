@@ -38,8 +38,8 @@ Then use one of the two following methods to run the container.
    - Navigate to `http://localhost:8787/` in your browser which will open an rstudio window in your browser, no login needed!
 
 2. Run the container manually
-   - staying in the same directory, run `docker run -it --rm -e PASSWORD=“group2” -p 8787:8787 ribbitsm/dsci310-group-02:animal_shelter_image_group2` in your terminal
-   - navigate to `http://localhost:8787/` in your browser which will open an Rstudio window. Enter the username `rstudio` and the password `gorup2` to log in.
+   - staying in the same directory, manually type in this code: `docker run -it --rm -e PASSWORD=“group2” -p 8787:8787 ribbitsm/dsci310-group-02:animal_shelter_image_group2` and run it in your terminal
+   - navigate to `http://localhost:8787/` in your browser which will open an Rstudio window. Enter the username `rstudio` and the password `group2` to log in.
 
 Once you are in the rstudio window, run
 `make all`
