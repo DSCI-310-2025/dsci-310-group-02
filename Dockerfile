@@ -18,5 +18,7 @@ RUN Rscript -e "remotes::install_version('kknn', version='1.3.1', repos='https:/
 RUN Rscript -e "remotes::install_version('rmarkdown', version='2.29', repos='https://cloud.r-project.org/')"
 Run Rscript -e "remotes::install_version('devtools', version='2.4.5', repos='https://cloud.r-project.org/')"
 RUN Rscript -e "devtools::install_github('DSCI-310-2025/animalshelterdataanalysis')"
+RUN Rscript -e "remotes::install_version('pointblank', version='0.12.2', repos='https://cloud.r-project.org/')"
+
 
 RUN chown -R rstudio .
