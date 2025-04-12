@@ -1,8 +1,17 @@
 # author: Rowan Murphy
 # date: 2025-03-11
 
-"This script takes the cleaned data file from Script3.R and saves EDA charts and tables produced from this file
-Usage: Script3.R --path_data=<path_data> --folder=<folder> --name1=<name1> --name2=<name2> --name3=<name3> --name4=<name4> --name5=<name5> --name6=<name6> --name7=<name7> --name8=<name8>
+"This script takes the cleaned data file from Script3.R and saves EDA charts and
+tables produced from this file
+Usage: Script3.R --path_data=<path_data> --folder=<folder> 
+    --name1=<name1> 
+    --name2=<name2> 
+    --name3=<name3> 
+    --name4=<name4> 
+    --name5=<name5> 
+    --name6=<name6> 
+    --name7=<name7> 
+    --name8=<name8>
 " -> doc
 
 library(docopt)
@@ -14,7 +23,8 @@ library(animalshelterdataanalysis)
 
 opt <- docopt(doc)
 
-main <- function(path_data, folder, name1, name2, name3, name4, name5, name6, name7, name8) {
+main <- function(path_data, folder,
+                 name1, name2, name3, name4, name5, name6, name7, name8) {
 
     #read in cleaned data
     animals <- read_csv(path_data)
