@@ -34,7 +34,8 @@ Then use one of the two following methods to run the container.
 
 1. Use the provided docker-compose.yaml file in this repository to start the container.
    - Clone this repository by running `git clone https://github.com/DSCI-310-2025/dsci-310-group-02.git` in your terminal
-   - In the directory containing the downloaded/pulled compose file, run `docker-compose up`
+   - In your terminal, now put in `cd dsci-310-group-02` in order to get to the directory containing the downloaded/pulled compose file 
+   - Now in the proper directory, you can run `docker-compose up` in the terminal 
    - Navigate to `http://localhost:8787/` in your browser which will open an rstudio window in your browser, no login needed!
 
 2. Run the container manually
