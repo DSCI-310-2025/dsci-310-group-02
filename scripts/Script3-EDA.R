@@ -9,8 +9,8 @@ library(docopt)
 library(dplyr)
 library(ggplot2)
 library(readr)
-source(here::here("R", "make_table.R"))
-source(here::here("R", "make_barplot.R"))
+
+library(animalshelterdataanalysis)
 
 opt <- docopt(doc)
 

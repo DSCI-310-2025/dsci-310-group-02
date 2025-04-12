@@ -14,7 +14,8 @@ library(dplyr)
 library(tidymodels)
 library(docopt)
 library(ggplot2)
-source("R/split_data.R")
+
+library(animalshelterdataanalysis)
 
 opt <- docopt(doc)
 
