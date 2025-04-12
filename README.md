@@ -34,14 +34,15 @@ Then use one of the two following methods to run the container.
 
 1. Use the provided docker-compose.yaml file in this repository to start the container.
    - Clone this repository by running `git clone https://github.com/DSCI-310-2025/dsci-310-group-02.git` in your terminal
-   - In the directory containing the downloaded/pulled compose file, run `docker-compose up`
+   - In your terminal, now put in `cd dsci-310-group-02` in order to get to the directory containing the downloaded/pulled compose file 
+   - Now in the proper directory, you can run `docker-compose up` in the terminal 
    - Navigate to `http://localhost:8787/` in your browser which will open an rstudio window in your browser, no login needed!
 
 2. Run the container manually
    - staying in the same directory, manually type in this code: `docker run -it --rm -e PASSWORD=“group2” -p 8787:8787 ribbitsm/dsci310-group-02:animal_shelter_image_group2` and run it in your terminal
    - navigate to `http://localhost:8787/` in your browser which will open an Rstudio window. Enter the username `rstudio` and the password `group2` to log in.
 
-Once you are in the rstudio window, run
+Once you are in the rstudio window, navigate to the terminal (make sure you are not in the r console) and run
 `make all`
 
 which will run all the various analysis scripts to clean the data, create EDA figures and tables, and create the model and visualizations. It will also create an `index.html` file in the `docs` folder to allow you to easily view the full report.
