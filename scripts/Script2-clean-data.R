@@ -13,7 +13,7 @@ library(readr)
 library(dplyr)
 library(docopt)
 
-source(here::here("R", "clean_data.R"))
+library(animalshelterdataanalysis)
 
 opt <- docopt(doc)
 

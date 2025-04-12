@@ -42,8 +42,6 @@ reports: reports/animal_shelter_adoptability_analysis.qmd
 
 # clean
 clean:
-	rm -rf results/*
-	rm -rf reports/animal_shelter_adoptability_analysis.html \
-		reports/animal_shelter_adoptability_analysis.pdf \
-		data/raw/shelter_data.csv data/clean/clean_shelter_data.csv \
-		docs/index.html
+	rm -rf results/* \
+		data/raw/* \
+		data/clean/*

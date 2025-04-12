@@ -69,7 +69,7 @@ better equipped to find homes for as many animals as possible.
 
 Research Question: Can we predict whether an animal will be adopted based on certain factors?
 
-We used data from the Long Beach Animal Shelter which contains: 
+We used data from the Long Beach Animal Shelter, which contains: 
 
 |variable          |class         |description                           |
 |:-----------------|:-------------|:-------------------------------------|
