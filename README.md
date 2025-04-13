@@ -11,13 +11,17 @@ This analysis aims to help enhance adoption rates, so shelters can recognize whi
 With a final accuracy of around 76%, we can fairly confidently state that we were able to successfully predict whether or not an animal would be adopted, at least to an extent. Unfortunately, one of the shortcomings of our chosen analysis model is the lack of feature importances. K nearest neighbours is a non-parametric model, meaning that it does not use coefficients to make its predictions, and as such it is unclear which features in this model contributed the most to this final result. However, what we have produced still serves as a valuable tool for shelter owners as a pre-trained model designed to predict whether or not an animal will be adopted. Overall, we are glad to see that our model functions well as it currently exists, but room for improvement still remains. An accuracy of 76% is good, but not fantastic, and we would be able to gain even more information by utilizing a model that would allow us to determine which specific factors contribute to an animal being adopted or not. These are important questions to consider in the future, and can be easily developed with further analysis of this data.
 
 ## Dependencies:
-- readr
-- tidyverse
-- ggplot2
+- animalshelterdataanalysis
+- devtools
+- docopt
 - dplyr
+- kknn
+- knitr
+- pointblank
+- readr
+- remotes
+- rmarkdown
 - tidymodels
-- caret
-- gridExtra
 
 ## Licenses:
 - MIT license
