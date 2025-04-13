@@ -3281,6 +3281,16 @@ Table 1: Retrieved from <span class="citation" data-cites="data">Lydia Gibson (
 <p>Additionally, because the <code>outcome_type</code> variable had so many different variations of results, we decided to group them into only 2 outcomes (Adopted vs Not Adopted) as that is what we are most interested in. So, we decided to create another variable called <code>outcome_group</code> to add our analysis of predicting adoptability.</p>
 <p>For our summarization of data, we decided to take a detailed look at the various outcome types (<a href="#tbl-Target" class="quarto-xref">Table 3</a>), and we also decided to show how many animals are adopted vs not adopted (<a href="#tbl-group" class="quarto-xref">Table 2</a>) to see if there are any biases, and if there is enough data for both outcomes. Additionally, we decided to show a more detailed look at the <code>intake_condition</code> variable (<a href="#tbl-intake" class="quarto-xref">Table 4</a>).</p>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;align&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;format&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
 <div id="tbl-group" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-group-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3312,6 +3322,16 @@ Table 2: Breakdown of outcome_group
 </div>
 </div>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;align&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;format&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
 <div id="tbl-Target" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Target-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3407,6 +3427,16 @@ Table 3: Summary of Outcome Types
 </div>
 </div>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;align&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;format&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
 <div id="tbl-intake" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-intake-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3586,6 +3616,16 @@ Figure 7: Confusion Matrix for our model
 </figure>
 </div>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;align&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in attr(x, &quot;format&quot;): &#39;xfun::attr()&#39; is deprecated.
+Use &#39;xfun::attr2()&#39; instead.
+See help(&quot;Deprecated&quot;)</code></pre>
+</div>
 <div id="tbl-modelstats" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelstats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3629,7 +3669,7 @@ Table 5: Summary statistics about our model
 </section>
 <section id="discussion" class="level1">
 <h1>Discussion</h1>
-<p>With a final accuracy of around 0.76%, we can fairly confidently state that we were able to successfully predict whether or not an animal would be adopted, at least to an extent. Unfortunately, one of the shortcomings of our chosen analysis model is the lack of feature importances. K nearest neighbours is a non-parametric model, meaning that it does not use coefficients to make its predictions, and as such it is unclear which features in this model contributed the most to this final result. However, what we have produced still serves as a valuable tool for shelter owners as a pre-trained model designed to predict whether or not an animal will be adopted. Overall, we are glad to see that our model functions well as it currently exists, but room for improvement still remains. An accuracy of 0.76% is good, but not fantastic, and we would be able to gain even more information by utilizing a model that would allow us to determine which specific factors contribute to an animal being adopted or not. These are important questions to consider in the future, and can be easily developed with further analysis of this data.</p>
+<p>With a final accuracy of around 0.76, we can fairly confidently state that we were able to successfully predict whether or not an animal would be adopted, at least to an extent. Unfortunately, one of the shortcomings of our chosen analysis model is the lack of feature importances. K nearest neighbours is a non-parametric model, meaning that it does not use coefficients to make its predictions, and as such it is unclear which features in this model contributed the most to this final result. However, what we have produced still serves as a valuable tool for shelter owners as a pre-trained model designed to predict whether or not an animal will be adopted. Overall, we are glad to see that our model functions well as it currently exists, but room for improvement still remains. An accuracy of 0.76 is good, but not fantastic, and we would be able to gain even more information by utilizing a model that would allow us to determine which specific factors contribute to an animal being adopted or not. These are important questions to consider in the future, and can be easily developed with further analysis of this data.</p>
 </section>
 <section id="references" class="level1 unnumbered">
 
